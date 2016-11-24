@@ -1,0 +1,18 @@
+<block name="header"></block>
+<div id='load'>
+<div class="square-spin">
+	<div></div>
+</div>
+</div>
+<div id="main-container">
+        <block name="body"></block>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        $(window).resize(function(){
+            $("#main-container").css("marginTop", $('.navbar').height());
+            // $("#main-container").css("min-height", $(window).height() -$('.footer').height());
+        }).resize();
+    })
+</script>

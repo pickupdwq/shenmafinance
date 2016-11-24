@@ -1,0 +1,42 @@
+<!-- 底部
+================================================== -->
+<footer class="footer home-footer">
+  <div class="container">
+  	<div class="row footer-wrap">
+  		<div class="col-xs-12 col-sm-offset-1 col-sm-4">
+  			<div class="col-xs-6 col-sm-6">
+          <div class="two-code pull-right">
+            <img class="img-responsive" src="__ROOT__{$er1}" alt="">
+            <p class="text-center fw200">扫描下载APP</p>
+          </div>
+  			</div>
+        <div class="col-xs-6 col-sm-6">
+          <div class="two-code pull-left">
+            <img class="img-responsive" src="__ROOT__{$er2}" alt="">
+            <p class="text-center fw200">扫描关注公众号</p>
+          </div>
+        </div>
+  		</div>
+
+      <div class="col-xs-12 col-sm-offset-1 col-sm-4 block-two footer_info">
+        <p class="fw200">联系电话：{$company_info.phone}</p>
+        <p class="fw200">合作邮箱：<a href="mailto:{$company_info.email}" class="color">{$company_info.email}</a></p>
+        <p class="fw200">地址：{$company_info.address}</p>
+      </div>
+
+      <div class="col-xs-12 col-sm-2">
+        <div class="footer-logo">
+          <img class="img-responsive" src="__PUBLIC__/static/img/footer_logo.png" alt="">
+        </div>
+      </div>
+  	</div>
+  </div>
+</footer>
+
+<include file="Public/var"/>
+<block name="script"></block> <!-- 用于加载js代码 -->
+<!-- 页面footer钩子，一般用于加载插件JS文件和JS代码 -->
+{:hook('pageFooter', 'widget')}
+<div class="hidden"><!-- 用于加载统计代码等隐藏元素 -->
+	<block name="hidden"></block>
+</div>

@@ -1,0 +1,36 @@
+<extend name="Public/base" />
+<block name="body">
+    <style type="text/css">
+    p {
+        margin: 20px 0;
+        font-size: 16px;
+    }
+    </style>
+    <div style="text-align: left;">
+    <form action="__SELF__" method="POST">
+        <p>问题大类：
+            <input value='{$info.main.main}' disabled="">
+        </p>
+        <p>二级问题：
+            <input value='{$info.other}' disabled="">
+        </p>
+        <input type="hidden" value="{$info.main_id}" name="main_id">
+        <input type="hidden" value="{$info.id}" name="other">
+        <p>问题:</p>
+            <input type="text" name="question" class="text input-mid">
+        <p>答案</p>
+        <!-- <textarea name="ask"></textarea> -->
+        <label class="textarea input-large">
+            <textarea name="ask"></textarea>
+        </label>
+        <p>
+            <button class="btn submit-btn" id="submit" type="submit">提交</button>
+            <a class="btn btn-return" href="{:U('Admin/Faq/lists/model/faq_other/')}">返 回</a>
+        </p>
+    </form>
+    </div>
+</block>
+<block name="script">
+    <script type="text/javascript">
+    </script>
+</block>

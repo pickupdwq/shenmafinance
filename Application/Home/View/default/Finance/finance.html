@@ -1,0 +1,235 @@
+<extend name="Base/common" />
+<block name="header"></block>
+<block name="body">
+    <!-- <div class="scroll_top mobile_version opacity0" >
+        <p></p>
+        <p></p>
+    </div> -->
+    <div class="finance">
+        <div class="pc_version">
+            <div class="top_banner_wrap">
+                <div style="background-image:url(__ROOT__{$banner[0].path});will-change: transform;" class="banner_top"></div>
+            </div>
+        </div>
+        <div class="mobile_version m_finance_banner">
+            <?php if($is_android): ?>
+             <div style="background-image: url(__ROOT__{$banner[0].path});background-size: cover;background-repeat:no-repeat;background-position:50%;height: 100%;"></div>
+            <?php else:?>
+            <img src="__ROOT__{$banner[0].path}" class="img100">
+            <?php endif;?>
+        </div>
+        <!-- <img class="w100" src="__PUBLIC__/static/img/finance_banner.png" alt=""> -->
+        <div class="container">
+            <div class="row">
+                <div class="block-one" <?php if($php_mobile): ?>style="margin-top:10px;"<?php endif; ?>>
+                    <div class="imgwrap">
+                        <img src="__PUBLIC__/static/img/finance_xiaomiao.png" alt="">
+                    </div>
+                    <div class="company-detail fw200">{$company.detail}</div>
+                </div>
+                <div class="block-two">
+                    <p class="title"><span class="fw100">发展历程</span></p>
+                    <div class="timeline_wrap">
+                        <div id="timeline">
+                            <ul id="dates" class="clearfix">
+                                <volist name="events" id="event">
+                                    <li>
+                                        <a>{$event.date|date="Y.m",###}</a>
+                                        <p>{$event.activity}</p>
+                                    </li>
+                                </volist>
+                            </ul>
+                            <ul id="issues">
+                                <volist name="events" id="event">
+                                    <li id="{$event.date|date='Y-m-d',###}">
+                                    </li>
+                                </volist>
+                            </ul>
+                        </div>
+                        <div id="time_next">
+                        </div>
+                        <!-- optional -->
+                        <div id="time_prev">
+                        </div>
+                        <!-- optional -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pc_version">
+        <div class="block-three" style="position:relative;">
+            <div class="animation_wrap">
+                <div class="tree" style="background:url(__PUBLIC__/static/img/tree_05.png) repeat-x 0 0;">
+                    <!-- <img src="__PUBLIC__/static/img/tree_05.png" class="img100"> -->
+                </div>
+                <div class="mountain">
+                    <img src="__PUBLIC__/static/img/mountain.png" class="img100">
+                </div>
+            </div>
+            <div class="motor_wrap">
+                <div class="cloud1">
+                    <img src="__PUBLIC__/static/img/cloud1.png" class="img100">
+                </div>
+                <div class="cloud2">
+                    <img src="__PUBLIC__/static/img/cloud2.png" class="img100">
+                </div>
+                <div class="cloud3">
+                    <img src="__PUBLIC__/static/img/cloud3.png" class="img100">
+                </div>
+                <div class="motor">
+                    <img src="__PUBLIC__/static/img/motor.png" class="img100">
+                </div>
+            </div>
+            <div class="road_line_wrap">
+                <div class="road_line"></div>
+            </div>
+            <!-- <img class="img-responsive" src="__PUBLIC__/static/img/finance_block_threebg.png" alt=""> -->
+            <!-- <img class="img-responsive luya" src="__PUBLIC__/static/img/finance_luya.png" alt=""> -->
+            <!-- <img class="img-responsive weiqi" src="__PUBLIC__/static/img/finance_weiqi.png" alt=""> -->
+        </div>
+        </div>
+
+        <div class="mobile_version mobile_bike">
+            <?php if($is_android): ?>
+             <div style="background-image: url(__PUBLIC__/static/img/mobile_bike.png);background-size: cover;background-repeat:no-repeat;background-position:50%;height: 100%;"></div>
+            <?php else:?>
+            <img src="__PUBLIC__/static/img/mobile_bike.png" class="img100">
+            <?php endif;?>
+        </div>
+        <div class="container total_slider_style">
+            <!--团队-->
+            <p class="title center f60 y_mtb5 mobile_style" <?php if($php_mobile): ?>style="margin:10% 0;"<?php endif; ?>><img src="__PUBLIC__/static/img/finance_tuandui.png" class="disinline-center mr10" alt=""><span class="fw100">团队</span></p>
+                <?php if(!$php_mobile): ?>
+                <div id="owl-demo" class="owl-carousel owl-theme clearfix teamwrap">
+                    <?php $page_count = ceil(count($teams)/6); ?>
+                    <?php for($i=0;$i<$page_count;$i++) {?>
+                    <div class='item'>
+                        <div class='row m0'>
+                            <?php for($j=0; $j < 6; $j++) {
+                              $ren = $teams[$i*6+$j];
+                                if($ren){
+                              ?>
+                            <div class='col-xs-6 col-lg-4 col-md-4 inline-block-fix team_avator_wrap'>
+                                <div class="disinline-center img_round_wrap mtb45 "><img src="__ROOT__<?php echo $ren['path']?>" class="img100"></div>
+                                <div class="disinline-center ml5p team_info ">
+                                    <p class="one" style="font-weight:200;">
+                                        <?php echo $ren['name'] ?>
+                                    </p>
+                                    <p class="two">
+                                        <?php echo $ren['position'] ?>
+                                    </p>
+                                    <p class="three">
+                                        <?php echo $ren['info1'] ?>
+                                    </p>
+                                    <p class="three">
+                                        <?php echo $ren['info2'] ?>
+                                    </p>
+                                    <p class="three">
+                                        <?php echo $ren['info3'] ?>
+                                    </p>
+                                </div>
+                            </div>
+                            <?php } ?>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
+                 <?php else: ?> 
+                    <div id="mobile-owl-demo" class="owl-carousel owl-theme clearfix teamwrap">
+                        <volist name="teams" id="ren">
+                              <div class='item'>
+                                <div class='inline-block-fix text-center'>
+                                    <div class="disinline-center img_round_wrap"><img src="__ROOT__{$ren.path}" class="img100"></div>
+                                    <div class="disinline-center w50 ml8p team_info mtb15">
+                                        <p class="one">
+                                            {$ren.name}
+                                        </p>
+                                        <p class="two">
+                                            {$ren.position}
+                                        </p>
+                                        <p class="three f16 fw300">
+                                            {$ren.info1}
+                                        </p>
+                                        <p class="three f16 fw300">
+                                            {$ren.info2}
+                                        </p>
+                                        <p class="three f16 fw300">
+                                            {$ren.info3}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </volist>
+                    </div>
+                <?php endif; ?>
+            <!--投资机构-->
+            <p class="title center f60 y_mt10 y_mb5 mobile_style"><img src="__PUBLIC__/static/img/media.png" class="disinline-center mr10" alt=""><span class="fw100">投资机构</span></p>
+            <div id="owl-invest" class="owl-carousel owl-theme clearfix invest_wrap">
+                <volist name="invests" id="invest">
+                    <div class="item p10p">
+                        <div class="invest_img">
+                            <img src="__ROOT__{$invest.path}" class="img100">
+                        </div>
+                        <p class="center f20 invest_title fw200">{$invest.name}</p>
+                        <div class="info_area">
+                            <p class="line_overflow text-center <?php if($php_mobile): ?>f16 fw300<?php else: ?>fw200<?php endif; ?>">{:nl2br($invest['info'])}</p>
+                        </div>
+                    </div>
+                </volist>
+            </div>
+            <!--金融机构-->
+            <p class="title center f60 y_mt10 y_mb5 mobile_style"><img src="__PUBLIC__/static/img/media.png" class="disinline-center mr10" alt=""><span class="fw100">金融机构</span></p>
+            <div id="owl-finance" class="owl-carousel owl-theme clearfix finance_wrap">
+                <?php $page_count = ceil(count($banking)/8); ?>
+                <?php for($i=0;$i<$page_count;$i++) {?>
+                <div class='item'>
+                    <div class='row'>
+                        <?php for($j=0; $j < 8; $j++) {
+                          $ren = $banking[$i*8+$j];
+                            if($ren){
+                          ?>
+                        <div class='col-xs-6 col-md-3 text-center'>
+                            <div class="disinline-center finance_img"><img src="__ROOT__<?php echo $ren['path']?>" class="img100"></div>
+                        </div>
+                        <?php } ?>
+                        <?php } ?>
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
+            <!--媒体报道-->
+            <p class="title center f60 y_mt10 mobile_style" <?php if(!$php_mobile): ?>style="margin-bottom: 1.8%;"<?php else: ?>style="margin-bottom:0px;"<?php endif; ?>><span class="fw100">媒体报道</span></p>
+            <div class="media_wrap" style="margin-bottom:10%;">
+                <div id="owl-media" class="owl-carousel owl-theme clearfix">
+                    <?php $page_count = ceil(count($medias)/4); ?>
+                    <?php for($i=0;$i<$page_count;$i++) {?>
+                    <div class='item opacityWhite mediacontent' style="font-weight:300;">
+                        <div class='row p3p5p'>
+                            <?php for($j=0; $j < 4; $j++) {
+                          $ren = $medias[$i*4+$j];
+                            if($ren){
+                          ?>
+                            <div class='col-xs-8'>
+                                <p class="f16 mtb15">
+                                    <a target="_blank" href="<?php echo $ren['url'] ?>" class="fw200">
+                                        <?php echo $ren['info']?>
+                                    </a>
+                                </p>
+                            </div>
+                            <div class='col-xs-4 text-right datetime'>
+                                <p class="f16 mtb15"><span class="fw200"><?php echo date('Y-m-d',$ren['create_time']); ?></span></p>
+                            </div>
+                            <?php } ?>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="script">
+    <script type="text/javascript" src="__STATIC__/js/finance.js"></script>
+</block>

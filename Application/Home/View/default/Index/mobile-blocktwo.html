@@ -1,0 +1,27 @@
+<div class="mobile h100">
+<div class="home-threeblock">
+    <div class="mapwrap" style="float: none;width: initial;margin-left: 0;">
+        <div class="bg_height" style="position: relative; background:url('__PUBLIC__/static/img/map.png') no-repeat 50% 10% ; background-size: contain;">
+            <div class="avatars">
+                <volist name="map" id="map_info" offset="0" length='3'>
+                <div class="avatar_content">
+                    <div class="avatar-small avatar-small{$key}">
+                       <img class="img-responsive" src="__ROOT__{$map_info.path}" alt="">
+                    </div>
+                    <div class="line line{$key}"></div>
+                    <div class="avatar">
+                        <img class="img-responsive" src="__ROOT__{$map_info.path}" alt="">
+                    </div>
+                    <div class="info">
+                        <p class="info1">{$map_info.name} {$map_info.age}岁</p>
+                        <p class="info2">{$map_info.job}</p>
+                        <p class="info3">{$map_info.info}</p>
+                    </div>
+                </div>                  
+                </volist>                     	
+            </div>
+
+        </div>
+    </div>
+</div>          	
+</div>

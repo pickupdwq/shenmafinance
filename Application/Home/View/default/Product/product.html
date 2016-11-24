@@ -1,0 +1,313 @@
+<extend name="Base/common" />
+<block name="header"></block>
+<block name="body">
+    <div class="product">
+        <div class="pc_version">
+        <div class="banner-wrap" id="page1" style="background:url(__PUBLIC__/static/img/product_banner1.jpg) no-repeat;background-size:cover;background-position:20% 60%;">
+            <!-- <img class="product_banner1" src="__PUBLIC__/static/img/product_banner1.jpg" alt=""> -->
+            <div class="container" style="position:relative;height:500px;">
+                <div class="row">
+                    <div class="block-one">
+                        <img class="product_img1" src="__ROOT__{$data.top.path}" alt="">
+                        <div class="product-description">
+                            <h1>{$data.top.head_1}</h1>
+                            <h2>{$data.top.head_2}</h2>
+                            <p>
+                                {$data.top.head_3}
+                            </p>
+                        </div>
+                        <div class="twocode_img">
+                            <div class="pc_version">
+                              <p class="text-center" style="color:#fff;">扫描下载APP</p>
+                            </div>
+                            <img class="img-responsive" src="__ROOT__{$data.top.qrcode.path}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>           
+        </div>
+        <div class="mobile_version">
+        <div class="banner-wrap">
+            <p class="title1">{$data.top.head_1}</p>
+            <p class="title2">{$data.top.head_2}</p>
+            <p class="title3">{$data.top.head_3}</p>
+            <p class="title4">扫描下载APP</p>
+            <div class="product-code">
+                <img class="img-responsive" src="__ROOT__{$data.top.qrcode.path}" alt="">
+            </div>
+            <img class="img-responsive" src="__ROOT__{$data.top.path}" alt="">
+        </div>  
+        </div>
+        <div class="pc_version">
+        <div class="home-secondblock product-process" id="page2">
+            <div class="container relative">
+                <div class="row">
+                    <p class="process-title fw100">什马分期办理流程</p>
+                    <img class="img1 opacity0" src="__PUBLIC__/static/img/xiang.png" alt="">
+                    <img class="img2 opacity0" src="__PUBLIC__/static/img/store.png" alt="">
+                    <img class="img3 opacity0" src="__PUBLIC__/static/img/jinmen.png" alt="">
+                    <div class="img4 opacity0">
+                        <img class="img-responsive" src="__PUBLIC__/static/img/xuanche.png" alt="">
+                        <img class="img5 opacity0" src="__PUBLIC__/static/img/tiziliao.png" alt="">
+                        <img class="img6 opacity0" src="__PUBLIC__/static/img/guoshenhe.png" alt="">
+                    </div>
+                    <img class="img7 opacity0" src="__PUBLIC__/static/img/huijia.png" alt="">
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="mobile_version version_height" style="height:615px;">
+        <div class="mobile h100">
+            <div class="home-secondblock h100" <?php if($php_mobile): ?>style="background-position:0 85%;"<?php else: ?>background-size: contain;<?php endif; ?>>
+              <div class="container relative">
+                <div class="row" <?php if($php_mobile): ?>style="position:absolute;width:100%;"<?php endif; ?>>
+                    <div id="buy_car" class="carousel slide carousel-fade" data-ride="carousel" style="width:100%;" style="position: relative;">
+                        <p class="fenqi_title fw200" <?php if($php_mobile): ?>style="font-weight:200!important;"<?php endif;?>>什马分期办理流程</p>
+                        <ol class="carousel-indicators" style="bottom: 39px;">
+                            <li data-target="#buy_car" data-slide-to="0" class="active">1<img src="__PUBLIC__/static/img/next.png" alt=""></li>
+                            <li data-target="#buy_car" data-slide-to="1">2<img src="__PUBLIC__/static/img/next.png" alt=""></li>
+                            <li data-target="#buy_car" data-slide-to="2">3<img src="__PUBLIC__/static/img/next.png" alt=""></li>
+                            <li data-target="#buy_car" data-slide-to="3">4</li>
+                        </ol>
+
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                              <img  class="mobile-img1" src="__PUBLIC__/static/img/xiang.png" alt="">
+                            </div>
+                            <div class="item">
+                              <p class="mobile-img2-title">进门店</p><p class="mobile-img3-title">选车</p>
+                              <img  class="mobile-img2" src="__PUBLIC__/static/img/mobile_dian.png" alt="">
+                                <img  class="mobile-img3" src="__PUBLIC__/static/img/mobile_jinmen.png" alt="">
+                                <img  class="mobile-img4" src="__PUBLIC__/static/img/purchase_vendor.png" alt="">
+                            </div>
+                            <div class="item">
+                              <img  class="mobile-img2" src="__PUBLIC__/static/img/mobile_dian.png" alt="">
+                                <img  class="mobile-img6" src="__PUBLIC__/static/img/nongming.png" alt="">
+                                <img  class="mobile-img7" src="__PUBLIC__/static/img/purchase_vendor.png" alt="">
+                                <img  class="mobile-img8" src="__PUBLIC__/static/img/mobile_shenhe.png" alt="">
+                            </div>
+                            <div class="item">
+                              <p class="mobile-img9-title">骑车回家啰</p>
+                              <img  class="mobile-img9" src="__PUBLIC__/static/img/mobile_huijia.png" alt="">
+                          </div>
+                        </div>
+                    </div>
+
+                </div>
+              </div>
+            </div>
+        </div>
+        </div>
+        <div class="pc_version">
+        <div class="banner-wrap" id="page3" style="background:url(__PUBLIC__/static/img/product_banner2.jpg) no-repeat;background-size:cover;background-position:20% 60%;">
+            <!-- <img class="product_banner1" src="__PUBLIC__/static/img/product_banner2.jpg" alt=""> -->
+            <div class="container" style="position:relative;height:500px;">
+                <div class="ie9hide">
+                    <div class="row">
+                        <div class="block-one">
+                            <img class="product_img1" src="__ROOT__{$data.bottom.path}" alt="">
+                            <div class="product-description bottom_product_description">
+                                <h1 class="C000">{$data.bottom.head_1}</h1>
+                                <h2 class="C000">{$data.bottom.head_2}</h2>
+                                <p class="C000">
+                                    {$data.bottom.head_3}
+                                </p>
+                            </div>
+                            <div class="twocode_img bottom_qrcode">
+                                <div class="pc_version">
+                                   <p class="C000 text-center">扫描下载APP</p>                                   
+                                </div>
+                                <img class="img-responsive" src="__ROOT__{$data.bottom.qrcode.path}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ie9show" style="display: none;">
+                    <div class="row">
+                        <div class="block-one">
+                            <img class="product_img1" src="__ROOT__{$data.bottom.path}" alt="">
+                            <div class="product-description">
+                                <h1>{$data.bottom.head_1}</h1>
+                                <h2>{$data.bottom.head_2}</h2>
+                                <p>
+                                    {$data.bottom.head_3}
+                                </p>
+                            </div>
+                            <img class="twocode_img" src="__ROOT__{$data.bottom.qrcode.path}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="mobile_version">
+        <div class="banner-wrap banner-wrap-bcg">
+            <p class="title1">{$data.bottom.head_1}</p>
+            <p class="title2">{$data.bottom.head_2}</p>
+            <p class="title3">{$data.bottom.head_3}</p>
+            <p class="title4">扫描下载APP</p>
+            <div class="product-code">
+                <img class="img-responsive" src="__ROOT__{$data.bottom.qrcode.path}" alt="">
+            </div>
+            <img class="img-responsive" src="__ROOT__{$data.bottom.path}" alt="">
+        </div>  
+        </div>
+        <div class="pc_version">
+        <div class="home-secondblock product-process">
+            <div class="container relative">
+                <div class="row">
+                    <p class="process-title fw100">信用袋办理流程</p>
+                    <img class="bottom_img1 opacity0" src="__PUBLIC__/static/img/store.png" alt="">
+                    
+                    <img class="w31 bottom_img2" src="__PUBLIC__/static/img/purchase_vendor.png" alt="">
+                    <div class="img8">
+                        <div class="pc_version">
+                        <img class="bottom_img11 opacity0" src="__PUBLIC__/static/img/purchase_xiang_2.png" alt="">
+                        <img class="bottom_img3 opacity0" src="__PUBLIC__/static/img/jinhuo_img2.png" alt="">
+                        <img class="bottom_img4 opacity0" src="__PUBLIC__/static/img/jinhuo_img3.png" alt="">
+                            <div class="common_animate">
+                                <p class="get-product">收货啦~</p>
+                                <img class="img-responsive bottom_img6" src="__PUBLIC__/static/img/che_2.png" alt="">
+                                <div class="common_animate_sub">
+                                    <img class="img-responsive bottom_img7" src="__PUBLIC__/static/img/kache_2.png" alt="">
+                                    <img class="bottom_img8" src="__PUBLIC__/static/img/kache_weiqi.png" class="img100">
+                                    <img class="bottom_img9" src="__PUBLIC__/static/img/kache_weiqi.png" class="img100">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mobile_version">
+                         <img class="bottom_img11" src="__PUBLIC__/static/img/purchase_xiang_2.png" alt="">
+                         <img class="bottom_img3" style="bottom:45%;" src="__PUBLIC__/static/img/jinhuo_img2.png" alt="">
+                         <img class="bottom_img4" style="bottom:45%;" src="__PUBLIC__/static/img/jinhuo_img3.png" alt="">
+                         <img class="img-responsive bottom_img5 opacity0" src="__PUBLIC__/static/img/jinhuo_img4.png" alt="">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>           
+        </div>
+        <div class="mobile_version version_height" style="height:615px;">
+        <div class="mobile h100">
+            <div class="home-secondblock h100" <?php if($php_mobile): ?>style="background-position:0 85%;"<?php else: ?>background-size: contain;<?php endif; ?>>
+              <div class="container relative">
+                <div class="row" <?php if($php_mobile): ?>style="position:absolute;width:100%;"<?php endif; ?>>
+                    <div id="restore" class="carousel slide carousel-fade" data-ride="carousel" style="width:100%;">
+                        <p class="fenqi_title fw200" <?php if($php_mobile): ?>style="font-weight:200!important;"<?php endif;?>>信用袋办理流程</p>
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators" style="bottom: 39px;">
+                            <li data-target="#restore" data-slide-to="0" class="active">1<img src="__PUBLIC__/static/img/next.png" alt=""></li>
+                            <li data-target="#restore" data-slide-to="1">2<img src="__PUBLIC__/static/img/next.png" alt=""></li>
+                            <li data-target="#restore" data-slide-to="2">3<img src="__PUBLIC__/static/img/next.png" alt=""></li>
+                            <li data-target="#restore" data-slide-to="3">4</li>
+                        </ol>
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                              <img  class="mobile-img2" src="__PUBLIC__/static/img/mobile_dian.png" alt="">
+                              <img  class="mobile-img10" src="__PUBLIC__/static/img/purchase_vendor.png" alt="">
+                              <img  class="mobile-img11" src="__PUBLIC__/static/img/purchase_xiang.png" alt="">
+                            </div>
+                            <div class="item">
+                              <img  class="mobile-img2" src="__PUBLIC__/static/img/mobile_dian.png" alt="">
+                                <img  class="mobile-img10" src="__PUBLIC__/static/img/purchase_vendor.png" alt="">
+                                <img  class="mobile-img8" src="__PUBLIC__/static/img/purchase_shenhe.png" alt="">
+                            </div>
+                            <div class="item">
+                              <p class="mobile-img12-title">收货啦~</p>
+                              <img  class="mobile-img2" src="__PUBLIC__/static/img/mobile_dian.png" alt="">
+                                <img  class="mobile-img12" src="__PUBLIC__/static/img/purchase_kache.png" alt="">
+                            </div>
+                            <div class="item">
+                              <img  class="mobile-img2" src="__PUBLIC__/static/img/mobile_dian.png" alt="">
+                                <img  class="mobile-img12" src="__PUBLIC__/static/img/purchase_che.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+              </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</block>
+<block name="script">
+    <script type="text/javascript" src="__STATIC__/js/product.js"></script>
+    <script>
+    $(function () {
+        var winH=$(window).height();
+        <?php if($is_android): ?>
+        $('.version_height').height(610);
+        <?php else: ?>
+        $('.version_height').height(winH+50);
+        <?php endif; ?>
+
+             function reset_car(){
+        $("#buy_car ol li").eq(0).click();
+        $("#mobile_purchase ol li").eq(0).click();
+        stop();
+    }
+    function buy_car(){
+        $('#buy_buy a').click();
+        $("#buy_car ol li").eq(0).click();
+        tt=setTimeout(function(){
+            $("#buy_car ol li").eq(1).click();
+        }, 2000);
+        tt=setTimeout(function(){
+            $("#buy_car ol li").eq(2).click();
+        }, 4000 );
+        tt=setTimeout(function(){
+            $("#buy_car ol li").eq(3).click();        
+        }, 6000);
+        tt=setTimeout(function(){
+         mobile_purchase()   
+        },8000);
+    }
+
+    function mobile_purchase(){
+        $('#purchase_purchase a').click();
+        $("#mobile_purchase ol li").eq(0).click();
+        tt=setTimeout(function(){
+            $("#mobile_purchase ol li").eq(1).click();
+        }, 2000);
+        tt=setTimeout(function(){
+            $("#mobile_purchase ol li").eq(2).click();
+        }, 4000 );
+        tt=setTimeout(function(){
+            $("#mobile_purchase ol li").eq(3).click();
+        }, 6000);
+        setTimeout(function(){
+            buy_car();
+         }, 8000);
+    }
+
+    $('#buy_buy a').click(function(){
+        $("#buy_car ol li").eq(0).click();
+    })
+    $('#purchase_purchase a').click(function(){
+        $("#mobile_purchase ol li").eq(0).click();
+    });
+    
+    function stop(){
+        if(typeof(tt)=='undefined'){
+            tt=null;
+        }
+        console.log(tt);
+        clearTimeout(tt); 
+    }
+
+    $("#buy_buy,#purchase_purchase").bind('touchstart',function(){
+        console.log(tt);
+        stop();
+    })
+    $('#mobile_purchase li,#mobile_buycar li').bind('touchstart',function(){
+        stop();
+    })
+    buy_car();
+    })
+
+    </script>
+</block>

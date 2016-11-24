@@ -1,0 +1,118 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<title>{:C('WEB_SITE_TITLE')}</title>
+<link rel="stylesheet" href="__STATIC__/css/reset.css" rel="stylesheet">
+<link rel="stylesheet" href="__STATIC__/bootstrap3/css/bootstrap.min.css">
+<link rel="stylesheet" href="__STATIC__/css/yinxie.css" rel="stylesheet">
+<link rel="stylesheet" href="__STATIC__/css/vic.css" rel="stylesheet">
+<link rel="stylesheet" href="__STATIC__/owl-carousel/owl.carousel.css">
+<link rel="stylesheet" href="__STATIC__/owl-carousel/owl.theme.css">
+<link rel="stylesheet" href="__STATIC__/css/animate.css">
+<?php if($is_android): ?><link rel="stylesheet" type="text/css" href="__STATIC__/css/android_style.css"><?php endif; ?>
+<link href="__PUBLIC__/static/img/favicon.ico" type="image/x-icon" rel="shortcut icon">
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+<script src="__STATIC__/bootstrap/js/html5shiv.js"></script>
+<![endif]-->
+<block name="style">
+    <style type="text/css">
+        <?php if(strtolower(CONTROLLER_NAME)=='finance'):?>
+        #main-container{display: block;}
+        .navbar{display: block;}
+        .footer{display: block;}
+        #load{display: none;}
+        <?php endif ;?>
+    </style>
+</block>
+
+<!--[if lte IE 9]>
+<script type="text/javascript" src="__STATIC__/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="__STATIC__/js/ie9hack.js"></script>
+<![endif]-->
+<!--[if gte IE 9]><!-->
+<script type="text/javascript" src="__STATIC__/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="__STATIC__/bootstrap3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__STATIC__/js/main.js"></script>
+<script type="text/javascript" src="__STATIC__/jquery.fullPage.js"></script>
+<script type="text/javascript" src="__STATIC__/owl-carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="__STATIC__/js/jquery.timelinr-0.9.53.js"></script>
+<script type="text/javascript">
+$.fn.extend({
+    animateCss: function(animationName) {
+        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        this.addClass('animated ' + animationName);
+    }
+});
+    <?php if(strtolower(CONTROLLER_NAME)!='finance'):?>
+     document.onreadystatechange = completeLoading;
+        function completeLoading() {
+            if (document.readyState == "complete") {
+                $('.footer,.navbar,#main-container').fadeIn();
+                $('#load').fadeOut();
+            }
+    }
+    <?php else: ?>
+    document.onreadystatechange =  aniamteRest;
+        function aniamteRest(){
+        $('.tree,.mountain').css({
+            width: $('body').width() + 'px'
+        });
+        setTimeout(function(){
+            $('.animation_wrap').height($('.mountain').height());
+        },400);
+         $('.animation_wrap').height($('.mountain').height());
+        $('.road_line_wrap').css({
+            width: $('body').width() + 'px',
+            height: 130 + 'px'
+        });
+        }
+    <?php endif ;?>
+    
+        
+$(function() {
+    $('#load').height($(window).height());
+    var winW = $(window).width();
+    if (winW > 767) {
+        $('.mobile_version').hide();
+    } else {
+        $('.pc_version').hide();
+    }
+    // $('[data-toggle="popover"]').popover();
+        
+    //tab show reset
+    $('.show_tab_qq,.show_tab_phone,.show_tab_scan').hide();
+    $('#tabControl li').hover(function(){
+        if($(this).find('div')){
+            var _this=$(this).find('div');
+            _this.stop(true,true).fadeIn();
+        }
+    },function(){
+        if($(this).find('div')){
+            var _this=$(this).find('div');
+            _this.stop(true,true).fadeOut();
+        }
+    })
+
+    $('.scrollTopLi').click(function() {
+        <?php if(ACTION_NAME!='index'): ?>
+            $('html,body').animate({
+                scrollTop: '0px'
+            }, 500);
+        <?php else: ?>
+            $.fn.fullpage.moveTo('banner',1);
+        <?php endif ?>
+    })
+
+})
+</script>
+    <!--手机端全局fw200 调整fw400-->
+    <?php if($php_mobile): ?>
+    <style type="text/css">
+       body .fw200{font-weight: 300!important;}
+    </style>
+    <?php endif; ?>
+<!--<![endif]-->
+<!-- 页面header钩子，一般用于加载插件CSS文件和代码 -->
+{:hook('pageHeader')}

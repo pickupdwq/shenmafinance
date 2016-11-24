@@ -1,0 +1,28 @@
+<!-- 导航条
+================================================== -->
+<nav class="navbar navbar-default navbar-fixed-top mobile_nav">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{:U('index/index')}"><img src="__PUBLIC__/static/img/header_logo.png" alt=""></a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="<?php if(strtolower(CONTROLLER_NAME) == 'index'){ ?>active<?php } ?>"><a href="{:U('index/index')}" class="fw200">首页 <span class="sr-only">(current)</span></a></li>
+        <li class="<?php if(strtolower(CONTROLLER_NAME) == 'finance'){ ?>active<?php } ?>"><a href="{:U('finance/finance')}" class="fw200">关于我们</a></li>
+        <li class="<?php if(strtolower(CONTROLLER_NAME) == 'product'){ ?>active<?php } ?>"><a href="{:U('product/product')}" class="fw200">什马产品</a></li>
+        <li class="<?php if(strtolower(CONTROLLER_NAME) == 'recruit'){ ?>active<?php } ?>"><a href="{:U('recruit/recruit')}" class="fw200">招聘</a></li>
+        <!--<li class="<?php if((strtolower(CONTROLLER_NAME) == 'recruit'&& strtolower(ACTION_NAME) != 'recruit_detail')||(strtolower(ACTION_NAME) == 'recruit_detail' && !$php_mobile)){ ?>active<?php } ?>"><a href="{:U('recruit/recruit')}" class="fw200"">招聘</a></li>-->
+        <li class="<?php if(strtolower(CONTROLLER_NAME) == 'faq'){ ?>active<?php } ?>"><a href="{:U('faq/faq')}" class="fw200"">客服中心</a></li>
+        <!--<?php if($php_mobile): ?><li class="<?php if(strtolower(ACTION_NAME) == 'recruit_detail'){ ?>active<?php } ?>"><a href="{:U('recruit/recruit_detail')}">招聘详情</a></li><?php endif ?>-->
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

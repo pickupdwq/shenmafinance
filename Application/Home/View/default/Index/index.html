@@ -1,0 +1,410 @@
+<extend name="Base/common" />
+<block name="header">
+    <?php if(!$is_android): ?><link rel="stylesheet" href="__STATIC__/css/jquery.fullPage.css"><?php endif;?>
+    <link rel="stylesheet" href="__STATIC__/css/owl.transitions.css">
+    <style type="text/css">
+        .owl-theme .owl-controls{margin-top: -50px!important;}
+        .owl-item img{transition:10s all;-moz-transition:10s all;-o-transition:10s all;-ms-transition:10s all;-webkit-transition:10s all;}
+    </style>
+</block>
+ <block name="body">
+    <div id="fullpage">
+        <div class="section firstpage">
+            <div class="container-fluid h92">
+                <div class="row home-oneblock">
+                    <?php if(!$php_mobile): ?>
+                    <div id="owl-demo" class="owl-carousel owl-theme">
+                        <volist name="datas" id="data">
+                            <div class="item" style="position: relative;">
+                                <?php if($is_edge):?>
+                                <div style="background-image: url(__ROOT__{$data.path});background-repeat: no-repeat;background-size: cover;height: 100%;"></div>
+                                <?php else :?>
+                                <img src="__ROOT__{$data.path}" class="img100 imgObject">
+                                <?php endif;?>
+                                 <div class="pc_version">
+                                     <div class="carousel-caption banner-word">
+                                        <p class="P_title">{$data.pic_title}</p>
+                                        <p class="title_detail">{$data.pic_detail}</p>
+                                     </div>
+                                 </div>
+                                 <div class="mobile_version">
+                                     <div class="carousel-caption banner-word">
+                                        <p class="P_title">{$data.pic_title}</p>
+                                        <p class="title_detail">{$data.pic_detail}</p>
+                                     </div>
+                                 </div>
+                            </div>
+                        </volist>
+                    </div>
+                    <?php else: ?>
+                    <div id="owl-demo-mobile" class="owl-carousel owl-theme">
+                        <volist name="datas" id="data">
+                            <div class="item" style="position: relative;">
+                                <?php if($is_android): ?>
+                                <div style="background-image: url(__ROOT__{$data.mobile_path.path});background-size: cover;background-repeat:no-repeat;height: 100%;"></div>
+                                <?php else:?>
+                                <img src="__ROOT__{$data.mobile_path.path}" class="img100 imgObject">
+                                <?php endif;?>
+                            </div>
+                        </volist>
+                    </div>
+                    <?php endif;?>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="pc_version h92">
+                <div class="home-secondblock h100">
+                    <div class="container relative">
+                        <div class="row">
+                            <ul class="nav nav-tabs  tab_toggle" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a href="#buycar" id="restFp" role="tab" data-toggle="tab">分期买车</a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#purchase" role="tab" data-toggle="tab">分期进货</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <img class="img2 opacity0" src="__PUBLIC__/static/img/store.png" alt="">
+                                <div role="tabpanel" class="tab-pane fade in active" id="buycar">
+                                    <img class="img1 opacity0" src="__PUBLIC__/static/img/xiang.png" alt="">
+                                    <!-- <img class="img2 opacity0" src="__PUBLIC__/static/img/store.png" alt=""> -->
+                                    <img class="img3 opacity0" src="__PUBLIC__/static/img/jinmen.png" alt="">
+                                    <div class="img4 opacity0">
+                                        <img class="img-responsive" src="__PUBLIC__/static/img/xuanche.png" alt="">
+                                        <img class="img5 opacity0" src="__PUBLIC__/static/img/tiziliao.png" alt="">
+                                        <img class="img6 opacity0" src="__PUBLIC__/static/img/guoshenhe.png" alt="">
+                                    </div>
+                                    <img class="img7 opacity0" src="__PUBLIC__/static/img/huijia.png" alt="">
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="purchase">
+                                    <!-- <img class="bottom_img1" src="__PUBLIC__/static/img/store.png" alt=""> -->
+                                    
+                                    <img class="w31 bottom_img2" src="__PUBLIC__/static/img/purchase_vendor.png" alt="">
+                                    <div class="img8">
+                                        <img class="bottom_img11" src="__PUBLIC__/static/img/purchase_xiang_2.png" alt="">
+                                        <img class="bottom_img3" src="__PUBLIC__/static/img/jinhuo_img2.png" alt="">
+                                        <img class="bottom_img4" src="__PUBLIC__/static/img/jinhuo_img3.png" alt="">
+                                        <div class="common_animate">
+                                            <p class="get-product">收货啦~</p>
+                                            <img class="img-responsive bottom_img6" src="__PUBLIC__/static/img/che_2.png" alt="">
+                                            <div class="common_animate_sub">
+                                                <img class="img-responsive bottom_img7" src="__PUBLIC__/static/img/kache_2.png" alt="">
+                                                <img class="bottom_img8" src="__PUBLIC__/static/img/kache_weiqi.png" class="img100">
+                                                <img class="bottom_img9" src="__PUBLIC__/static/img/kache_weiqi.png" class="img100">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile_version h100 bg_height">
+            <div class="mobile h100">
+                <div class="home-secondblock h100" <?php if($php_mobile): ?>style="background-position:0 85%;"<?php else: ?>background-size: contain;<?php endif; ?>>
+                  <div class="container relative">
+                    <div class="row" <?php if($php_mobile): ?>style="position:absolute;width:100%;"<?php endif; ?>>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs tab_toggle" role="tablist">
+                            <li role="presentation" class="active" id="buy_buy">
+                                <a href="#mobile_buycar" role="tab" data-toggle="tab" class="fw200" <?php if($php_mobile): ?>style="font-weight:200!important;"<?php endif;?>>分期买车</a>
+                            </li>
+                           <!--  <li role="presentation">
+                                <a>/</a>
+                            </li> -->
+                            <li role="presentation" id="purchase_purchase">
+                                <a href="#mobile_purchase" role="tab" data-toggle="tab" class="fw200" <?php if($php_mobile): ?>style="font-weight:200!important;"<?php endif;?>>分期进货</a>
+                            </li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content" <?php if($php_mobile): ?>style="background:transparent;<?php endif; ?>">
+                            <div role="tabpanel" class="tab-pane fade in active" id="mobile_buycar">
+                                <div id="buy_car" class="carousel slide carousel-fade" style="width:100%;" style="position: relative;">
+
+                                    <ol class="carousel-indicators" style="bottom: 39px;">
+                                        <li data-target="#buy_car" data-slide-to="0" class="active">1<img src="__PUBLIC__/static/img/next.png" alt=""></li>
+                                        <li data-target="#buy_car" data-slide-to="1">2<img src="__PUBLIC__/static/img/next.png" alt=""></li>
+                                        <li data-target="#buy_car" data-slide-to="2">3<img src="__PUBLIC__/static/img/next.png" alt=""></li>
+                                        <li data-target="#buy_car" data-slide-to="3">4</li>
+                                    </ol>
+
+
+                                    <div class="carousel-inner" role="listbox">
+                                        <div class="item active">
+                                          <img  class="mobile-img1" src="__PUBLIC__/static/img/xiang.png" alt="">
+                                        </div>
+                                        <div class="item">
+                                          <p class="mobile-img2-title">进门店</p><p class="mobile-img3-title">选车</p>
+                                          <img  class="mobile-img2" src="__PUBLIC__/static/img/mobile_dian.png" alt="">
+                                            <img  class="mobile-img3" src="__PUBLIC__/static/img/mobile_jinmen.png" alt="">
+                                            <img  class="mobile-img4" src="__PUBLIC__/static/img/purchase_vendor.png" alt="">
+                                        </div>
+                                        <div class="item">
+                                          <img  class="mobile-img2" src="__PUBLIC__/static/img/mobile_dian.png" alt="">
+                                            <img  class="mobile-img6" src="__PUBLIC__/static/img/nongming.png" alt="">
+                                            <img  class="mobile-img7" src="__PUBLIC__/static/img/purchase_vendor.png" alt="">
+                                            <img  class="mobile-img8" src="__PUBLIC__/static/img/mobile_shenhe.png" alt="">
+                                        </div>
+                                        <div class="item">
+                                          <p class="mobile-img9-title">骑车回家啰</p>
+                                          <img  class="mobile-img9" src="__PUBLIC__/static/img/mobile_huijia.png" alt="">
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div role="tabpanel" class="tab-pane fade" id="mobile_purchase">
+                                    <div id="restore" class="carousel" style="width:100%;">
+                                        <!-- Indicators -->
+                                        <ol class="carousel-indicators" style="bottom: 39px;">
+                                            <li data-target="#restore" data-slide-to="0" class="active">1<img src="__PUBLIC__/static/img/next.png" alt=""></li>
+                                            <li data-target="#restore" data-slide-to="1">2<img src="__PUBLIC__/static/img/next.png" alt=""></li>
+                                            <li data-target="#restore" data-slide-to="2">3<img src="__PUBLIC__/static/img/next.png" alt=""></li>
+                                            <li data-target="#restore" data-slide-to="3">4</li>
+                                        </ol>
+                                        <!-- Wrapper for slides -->
+                                        <div class="carousel-inner" role="listbox">
+                                            <div class="item active">
+                                              <img  class="mobile-img2" src="__PUBLIC__/static/img/mobile_dian.png" alt="">
+                                              <img  class="mobile-img10" src="__PUBLIC__/static/img/purchase_vendor.png" alt="">
+                                              <img  class="mobile-img11" src="__PUBLIC__/static/img/purchase_xiang.png" alt="">
+                                            </div>
+                                            <div class="item">
+                                              <img  class="mobile-img2" src="__PUBLIC__/static/img/mobile_dian.png" alt="">
+                                                <img  class="mobile-img10" src="__PUBLIC__/static/img/purchase_vendor.png" alt="">
+                                                <img  class="mobile-img8" src="__PUBLIC__/static/img/purchase_shenhe.png" alt="">
+                                            </div>
+                                            <div class="item">
+                                              <p class="mobile-img12-title">收货啦~</p>
+                                              <img  class="mobile-img2" src="__PUBLIC__/static/img/mobile_dian.png" alt="">
+                                                <img  class="mobile-img12" src="__PUBLIC__/static/img/purchase_kache.png" alt="">
+                                            </div>
+                                            <div class="item">
+                                              <img  class="mobile-img2" src="__PUBLIC__/static/img/mobile_dian.png" alt="">
+                                                <img  class="mobile-img12" src="__PUBLIC__/static/img/purchase_che.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="section bgmapColor">
+            <div class="pc_version">
+            <div class="home-threeblock">
+                <div class="mapwrap bg_height" style="float: none;width:800px;margin: 0 auto;">
+                    <!-- <div class="bg_height" style="position: relative; background:url('__PUBLIC__/static/img/map.png') no-repeat 50% 50% ;"> -->
+                        <div class="map_content">
+                        <img src="__PUBLIC__/static/img/threepage.png" class="map_word" >
+                        <img src="__PUBLIC__/static/img/map-o.png" class="map_back">
+                        <volist name="map" id="map_info" offset="0" length='5'>
+                                <div class="map_total_wrap{$key}">
+                                <a class="vendor vendor{$key} map_blink">
+                                    <img class="img100" src="__ROOT__{$map_info.path}" alt="">
+                                </a>
+                                <div class="avatar-wrap avatar-wrap{$key} disnone">
+                                    <div class="line"></div>
+                                    <div class="avatar-subwrap">
+                                        <div class="bgfff p10 C000 pb23">
+                                            <div class="avatar" style="width:60px;height:60px;">
+                                                <img class="img100" src="__ROOT__{$map_info.path}" alt="">-</div>
+                                            <div class="info">
+                                                <p class="info1 fw600 f18">{$map_info.name} {$map_info.age}岁</p>
+                                                <p class="info2 fw200 f12" style="line-height: 1;">{$map_info.job}</p>
+                                            </div>
+                                            <p class="topic fw200 f14" style="line-height: 1;">{$map_info.info}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                        </volist>
+                    </div>
+                    <!-- </div> -->
+                </div>
+            </div>
+            </div>
+            <div class="mobile_version">
+            <div class="mobile h100">
+            <div class="home-threeblock">
+                <?php if(!$php_mobile): ?>
+                <div class="mapwrap" style="float: none;width: initial;margin-left: 0;">
+                    <div class="bg_height" style="position: relative; background:url('__PUBLIC__/static/img/map.png') no-repeat 50% 10% ; background-size: contain;">
+                        <div class="avatars" style="top: 310px;">
+                            <volist name="map" id="map_info" offset="0" length='4'>
+                            <if condition="($key eq 0) OR ($key eq 2) OR ($key eq 3) " >
+                                <div class="avatar_content">
+                                    <div class="avatar-small <?php if($key==3): ?>avatar-small1<?php else: ?>avatar-small{$key}<?php endif; ?>">
+                                       <img class="img100" src="__ROOT__{$map_info.path}" alt="">
+                                    </div>
+                                    <div class="line <?php if($key==3): ?>line1<?php else: ?>line{$key}<?php endif; ?>"></div>
+                                    <div class="<?php if($key==3): ?>circle1<?php else: ?>circle{$key}<?php endif; ?>"></div>
+                                    <div class="avatar">
+                                        <img class="img100" src="__ROOT__{$map_info.path}" alt="">
+                                    </div>
+                                    <div class="info">
+                                        <p class="info1">{$map_info.name} {$map_info.age}岁</p>
+                                        <p class="info2">{$map_info.job}</p>
+                                        <p class="info3">{$map_info.info}</p>
+                                    </div>
+                                </div>
+                            </if>
+                            </volist>
+                        </div>
+
+                    </div>
+                </div>
+                <?php else: ?>
+                <div class="mapwrap" style="float: none;width: initial;margin-left: 0;">
+                    <div class="bg_height" style="position: relative;">
+                        <div>
+                            <p class="map-title">已覆盖全国31个省<br>网点20000多家</p>
+                            <p class="map-subtitle"><span class="icon1"></span>1000+<br><span class="icon2"></span>500~1000<br><span class="icon3"></span>500以下</p>
+                           <!--  <img src="__PUBLIC__/static/img/threepage.png" class="map_title"> -->
+                            <img src="__PUBLIC__/static/img/map-o.png" class="w100" style="margin-top:-45px;">
+                        </div>
+                        <div class="avatars" id="phpMobile">
+                            <volist name="map" id="map_info" offset="0" length='4'>
+                                <if condition="($key eq 0) OR ($key eq 2) OR ($key eq 3) " >
+                                    <div class="avatar_content" <?php if($php_mobile): ?>style="top:0px;margin-top:1px;" <?php endif; ?>>
+                                        <div class="avatar-small <?php if($key==3): ?>avatar-small1<?php else: ?>avatar-small{$key}<?php endif; ?>">
+                                           <img class="img100" src="__ROOT__{$map_info.path}" alt="" >
+                                        </div>
+                                        <div class="line <?php if($key==3): ?>line1<?php else: ?>line{$key}<?php endif; ?>"></div>
+                                        <div class="<?php if($key==3): ?>circle1<?php else: ?>circle{$key}<?php endif; ?>"></div>
+                                        <div class="avatar">
+                                            <img class="img100" src="__ROOT__{$map_info.path}" alt="">
+                                        </div>
+                                        <div class="info" style="width: 80%;padding:7px 0;">
+                                            <p class="info1"><span <?php if($php_mobile): ?>style="font-weight:600!important;"<?php endif;?>>{$map_info.name} {$map_info.age}</span> <span class="info2" <?php if($php_mobile): ?>style="font-weight:300!important;"<?php endif;?>>{$map_info.job}</span></p>
+                                            <p class="info3" <?php if($php_mobile): ?>style="font-weight:300!important;"<?php endif;?>>{$map_info.info}</p>
+                                        </div>
+                                    </div>
+                                    <else />
+                                </if>
+                            </volist>
+                        </div>
+
+                    </div>
+                </div>
+                <?php endif; ?>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="section <?php if($is_android): ?>android_wetry<?php endif; ?>">
+            <div class="home-fourblock h100">
+                <p class="we_try pc_version">{$last_info}</p>
+                <p class="we_try mobile_version fw200 " <?php if($php_mobile): ?>style="font-size:40px;font-weight:200!important;"<?php endif;?> >{$last_info}</p>
+                <div class="imgwrap" <?php if($php_mobile): ?> style="bottom:0;"<?php endif; ?>>
+                    <img class="img-responsive flower" src="__ROOT__{$last_img}" alt="">
+                </div>
+            </div>
+        </div>
+        <?php if(!$is_android): ?>
+        <div class="section footer fp-auto-height">
+            <footer class="footer home-footer" >
+                <div class="container">
+                    <div class="row footer-wrap">
+                        <div class="col-xs-12 col-sm-offset-1 col-sm-4">
+                            <div class="col-xs-6 col-sm-6">
+                                <div class="two-code pull-right">
+                                    <img class="img-responsive" src="__ROOT__{$er1}" alt="">
+                                    <p class="text-center fw200">扫描下载APP</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6">
+                                <div class="two-code pull-left">
+                                    <img class="img-responsive" src="__ROOT__{$er2}" alt="">
+                                    <p class="text-center fw200">扫描关注公众号</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-offset-1 col-sm-4 block-two footer_info">
+                            <p class="fw200">联系电话：400-088-6177 021-62156265</p>
+                            <p class="fw200">合作邮箱：<a href="mailto:{$company_info.email}" class="color">{$company_info.email}</a></p>
+                            <p class="fw200">地址：{$company_info.address}</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-2">
+                            <div class="footer-logo">
+                                <img class="img-responsive" src="__PUBLIC__/static/img/footer_logo.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <?php endif;?>
+    </div>
+    <div class="pc_version">
+        <ul class="list-unstyled menu_wrap" id="tabControl">
+            <?php if(ACTION_NAME=="index"): ?><li>
+                <img class="img-responsive" src="__PUBLIC__/static/img/qq.png" alt="">
+                <div class="show_tab_qq">
+                    <p><a href="tencent://message/?uin={$qq}&Site=&Menu=yes">QQ咨询</a></p>
+                </div>
+            </li><?php endif ?>
+
+            <li>
+                <img class="img-responsive" src="__PUBLIC__/static/img/tel.png" alt="">
+                <div class="show_tab_phone">
+                    <p>{$tel}</p>
+                </div>
+            </li>
+
+            <li>
+                <img class="img-responsive" src="__PUBLIC__/static/img/twocode.png" alt="">
+                <div class='show_tab_scan show_tab'>
+                    <img style="width:100px;" src="__PUBLIC__/static/img/footer_twocode.png" alt="">
+                    <p class="text-center">扫描下载APP</p>
+                    <img style="width:100px;" src="__PUBLIC__/static/img/twocode_public_img.png" alt="">
+                    <p class="text-center">扫描关注公众号</p>
+                </div>
+            </li>
+
+            <li class="scrollTopLi">
+                <img class="img-responsive" src="__PUBLIC__/static/img/backtop.png" alt="">
+            </li>
+        </ul>
+    </div>
+</block>
+<block name="script">
+	<?php if($php_mobile): ?>
+        <script type="text/javascript" src="__STATIC__/js/mSlide.js"></script><!--移动端的滑动轮播-->
+        <?php if(!$is_android): ?>
+		<script type="text/javascript" src="__STATIC__/js/mIndexFp.js"></script><!--非安卓机滚屏动画-->
+        <?php endif; ?>
+    <?php else: ?>
+		<script type="text/javascript" src="__STATIC__/js/IndexFp.js"></script><!--PC端滚屏动画-->
+	<?php endif; ?>
+
+
+
+    <!--android hack-->
+    <?php if($is_android):?>
+         <!--安卓机高度定高-->
+        <script type="text/javascript">
+            $(function(){
+                $('.bg_height').height(530);
+            })
+        </script>
+    <?php else:?>
+        <!--非安卓机定高-->
+        <script type="text/javascript">
+            $(function(){
+                $('.bg_height').height($(window).height() - $('nav').height());
+            })
+        </script>
+    <?php endif; ?>
+    <script type="text/javascript" src="__STATIC__/js/IndexCommon.js"></script><!--移动端与PC端公用JS-->
+</block>

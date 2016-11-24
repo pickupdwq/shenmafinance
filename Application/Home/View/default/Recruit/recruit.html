@@ -1,0 +1,104 @@
+<extend name="Base/common" />
+<block name="header"></block>
+<block name="body">
+    <div class="container-fluid" id="page1">
+        <div class="pc_version">
+            <div class="row">
+                <div style="background:url(__ROOT__{$banner.path});will-change: transform;" class="recruit_bg"></div>
+            </div>
+        </div>
+    </div>
+        <div class="mobile_version" style="height: 250px;">
+                <?php if($is_android):?>
+                    <div style="background-image: url(__ROOT__{$banner.path});background-size: cover;height: 100%;background-repeat: no-repeat;"></div>
+                <?php else: ?>
+                    <img src="__ROOT__{$banner.path}" class="img100 imgObject" style="object-fit: cover;">
+                <?php endif;?>
+        </div>
+    <div style="margin-bottom:4%;" id="page2">
+        <div class="container">
+            <div class="row recruit-info">
+                <p class="title"><img src="__PUBLIC__/static/img/recruit_title.png" alt=""><span class="disinline-center ml7 fw100">招聘信息</span></p>
+                <!-- <div style="text-align:center" class="bigtitle pt50"><img src="__PUBLIC__/static/img/zhaopin.png" alt=""></div> -->
+                <volist name="jobs" id="job">
+                    <?php if($job['info']): ?>
+                    <div class="col-xs-6 col-sm-4 category">
+                        <div class="category-logo center">
+                            <a href="{:U('recruit/recruit_detail',array('id'=>$job['id']))}"><img class="img-responsive" src="__ROOT__{$job.path}" alt=""></a>
+                        </div>
+                        <p class="title f20 fw200">{$job.type}</p>
+                        <volist name="job.info" id="position">
+                            <p><a href="{:U('recruit/recruit_detail',array('id'=>$position['recruit_id'],'position'=>$position['id'],'recruit_mobile'=>$php_mobile?'true':null))}" class="f14 fw200 C666666">{$position['position']}({$position['num']}人)</a></p>
+                        </volist>
+                    </div>
+                <?php endif; ?>
+                </volist>
+            </div>
+        </div>
+    </div>
+    <div class="pc_version">
+        <div class="recruit-welfare">
+            <div class="recruit_welfare_bg"></div>
+            <div class="container" style="position:relative;">
+                <div class="row">
+                    <div class="welfare-content">
+                        <p class="welfare-title">公司福利</p>
+                        <img class="img-responsive" src="__PUBLIC__/static/img/recruit_welfaretree.png" alt="">
+                        <div class="welfare-detail position1 opacity0">
+                            <img class="img-responsive" src="__PUBLIC__/static/img/welfare_single1.png" alt="">
+                        </div>
+                        <div class="welfare-detail position2 opacity0">
+                            <img class="img-responsive" src="__PUBLIC__/static/img/welfare_single2.png" alt="">
+                        </div>
+                        <div class="welfare-detail position3 opacity0">
+                            <img class="img-responsive" src="__PUBLIC__/static/img/welfare_single3.png" alt="">
+                        </div>
+                        <div class="welfare-detail position4 opacity0">
+                            <img class="img-responsive" src="__PUBLIC__/static/img/welfare_single4.png" alt="">
+                        </div>
+                        <div class="welfare-detail position5 opacity0">
+                            <img class="img-responsive" src="__PUBLIC__/static/img/welfare_single5.png" alt="">
+                        </div>
+                        <div class="welfare-detail position6 opacity0">
+                            <img class="img-responsive" src="__PUBLIC__/static/img/welfare_single6.png" alt="">
+                        </div>
+                        <div class="welfare-detail position7 opacity0">
+                            <img class="img-responsive" src="__PUBLIC__/static/img/welfare_single7.png" alt="">
+                        </div>
+                        <div class="welfare-detail position8 opacity0">
+                            <img class="img-responsive" src="__PUBLIC__/static/img/welfare_single8.png" alt="">
+                        </div>
+                        <div class="welfare-detail position9 opacity0">
+                            <img class="img-responsive" src="__PUBLIC__/static/img/welfare_single9.png" alt="">
+                        </div>
+                        <div class="welfare-detail position10 opacity0">
+                            <img class="img-responsive" src="__PUBLIC__/static/img/welfare_single10.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mobile_version">
+        <p class="ml7 f36 m0 center welfare_title"><img src="__PUBLIC__/static/img/office_environment_title.png" class="disinline-center" alt=""><span class="disinline-center fw100">公司福利</span></p>
+        <img class="imgObject img100" src="__PUBLIC__/static/img/mobile_welfaretree.jpg" alt="">
+    </div>
+    <div class="container">
+        <div class="row office-environment">
+            <p class="title"><img src="__PUBLIC__/static/img/office_environment_title.png" alt=""><span class="disinline-center ml7 fw100">办公环境</span></p>
+            <volist name="pic_array" id="img">
+                <div class="col-xs-6 col-sm-3 p0 ">
+                    <img src="__ROOT__{$img.path}" class="w100 h100">
+                </div>
+            </volist>
+        </div>
+        <div class="pc_version">
+            <div class="row">
+                <div class="environment-bottom"><img class="img-responsive" src="__PUBLIC__/static/img/environment_bottom.png" alt=""></div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="script">
+    <script type="text/javascript" src="__STATIC__/js/recruit.js"></script>
+</block>

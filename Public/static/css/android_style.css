@@ -1,0 +1,13 @@
+html,body{height: initial;}
+.android_wetry{position: relative;height: 500px;}
+.mobile_version .home-secondblock .nav-tabs{left: 0;width: 270px;margin: 0 auto;top: 35px;}
+.mobile .avatar_content .line1{top: -217px;height: 213px;}
+.mobile .avatar_content .avatar-small1{top: -243px;left: 47%;}
+.mobile .avatar_content .avatar-small0{left: 25%}
+.mobile .avatar_content .avatar-small2{left: 68%;}
+
+@media ( min-width: 320px ){
+	.mobile .avatar_content .line2{top:-119px;height: 113px;}
+}
+
+/*yingxie*/
